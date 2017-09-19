@@ -138,8 +138,8 @@
                     <p><input class="w3-input w3-padding-16" type="text" placeholder="Sujet" required id="Sujet" name="Sujet"></p>
                     <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required id="Message" name="Message"></p>
                     <p>
-                        <button class="w3-button w3-padding-large" class="EmailSend">
-                            <a href="mailto:twistedgamesca@gmail.com" target="_top"> <i class="fa fa-paper-plane"></i> ENVOYER MESSAGE </a>
+                        <button class="w3-button w3-padding-large" class="EmailSend" onClick="sendMail()">
+                            <i class="fa fa-paper-plane"></i> ENVOYER MESSAGE
                         </button>
                     </p>
                 </form>
@@ -156,14 +156,15 @@
             </footer>
         </div>
     <script>
-	/* $(function () {
-      		$('.EmailSend').click(function (event) {
-        	var email = 'twistedgamesca@gmail.com';
-        	var subject = $('#Sujet').val();
-        	var emailBody = $('#Nom').val() + Document.write("<br>") + $('#Message').val();
-        	document.location = "mailto:"+email+"?subject="+subject+"&body="+emailBody;
-      		});
-    	}); */
+	function sendMail()
+	{
+    		var yourMessage = document.getElementById("Message").value;
+    		var subject = document.getElementById("Sujet").value;
+    		document.location.href = "mailto:twistedgamesca@gmail.com?subject="
+        	+ encodeURIComponent(subject)
+        	+ "&body=" + encodeURIComponent(yourMessage);
+	}
+
 	    
         /* Carousel d'images */
         var slideIndex = 1;
